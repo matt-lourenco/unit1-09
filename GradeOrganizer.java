@@ -23,11 +23,11 @@ public class GradeOrganizer {
 		}
 	}
 	
-	private static double findAverage(int[][] array) {
+	private static double findAverage(double[][] array) {
 		//finds the average of a 2D array (a class of students)
 		
 		double[] studentAverages = new double[array.length];
-		int studentScore = 0;
+		double studentScore = 0;
 		double overallScore = 0;
 		
 		//find average of each student
@@ -44,16 +44,17 @@ public class GradeOrganizer {
 			overallScore += studentAverage;
 		}
 		//return the class average
-		return overallScore / studentAverages.length;
+		return (double) Math.round(overallScore / studentAverages.length
+				* 100) / 100;
 	}
 	
 	public static void main(String[] args) {
 		// Generates a 4 x 6 array and fills with randomSkewedNumber()s
 		
-		int[][] classroom = new int[4][6];
+		double[][] classroom = new double[4][6];
 		
 		//fill with random skewed numbers
-		for(int[] student: classroom) {
+		for(double[] student: classroom) {
 			for(int assignment=0; assignment<student.length; assignment++) {
 				student[assignment] = randomSkewedNumber();
 			}
@@ -62,8 +63,8 @@ public class GradeOrganizer {
 		//print each student's score
 		for(int student=0; student<classroom.length; student++) {
 			System.out.print("Student" + (student+1) + ":");
-			for(int assignment: classroom[student]) {
-				System.out.print(" "+assignment);
+			for(double assignment: classroom[student]) {
+				System.out.print(" "+(int)assignment);
 			}
 			System.out.println();
 		}
