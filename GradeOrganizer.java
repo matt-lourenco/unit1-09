@@ -14,8 +14,8 @@ public class GradeOrganizer {
 	private static int randomSkewedNumber() {
 		//This method generates two random numbers and returns the larger one
 		Random rand = new Random();
-		int randomNumber1 = rand.nextInt(100);
-		int randomNumber2 = rand.nextInt(100);
+		int randomNumber1 = rand.nextInt(101);
+		int randomNumber2 = rand.nextInt(101);
 		if(randomNumber1 > randomNumber2) {
 			return randomNumber1;
 		} else {
